@@ -1,2 +1,2 @@
 # BankingSystem
-Banking System Summer Project 
+Banking System Project for the summer
