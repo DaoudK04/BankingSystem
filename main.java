@@ -52,6 +52,46 @@ public class main {
         System.out.println("Enter account number: ");
         String accountNum = scnr.nextLine();
         Account account = bank.getAccount(accountNum);
+        
+        if(account != null){
+            System.out.println("Enter amount to deposit: ");
+            double amount = scnr.nextDouble();
+
+            if(account.deposit(amount)){
+                System.out.println("Deposit complete. Updated account details: " + account);
+            }
+            else{
+                System.out.println("Deposit failed.  Please try again. ");
+                
+            }
+        }
+        else{
+            System.out.println("Account not found. Please check account number entered. ");
+        }
     }
-    //Testing
+    
+    private static void performWithdrawal(){
+        Scanner scnr = new Scanner(System.in);
+
+        System.out.println("Enter account number: ");
+        String accountNum = scnr.nextLine();
+        Account account = bank.getAccount(accountNum);
+
+        if(account != null){
+            System.out.println("Enter amount to withdraw: ");
+            double amount = scnr.nextDouble();
+
+            if(account.withdraw(amount)){
+                System.out.println("Withdrawal succesful.  Updated account details: " + account);
+            }
+            else{
+                System.out.println("Insufficient funds or invalid amount.  Please try again.");
+            }
+
+        }
+        else{
+            System.out.println("Account not found. Please check account number entered. ");
+        }
+
+    }
 }
