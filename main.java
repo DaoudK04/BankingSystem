@@ -15,16 +15,16 @@ public class main {
                     accountCreation.createAccount();
                     break;
                 case 2:
-                    performDeposit();
+                    performDeposit(scnr);
                     break;
                 case 3:
-                    performWithdrawal();
+                    performWithdrawal(scnr);
                     break;
                 case 4:
-                    performTransfer();
+                    performTransfer(scnr);
                     break;
                 case 5:
-                    adminAccess();
+                    adminAccess(scnr);
                     break;
                 case 6:
                     System.out.println("Exiting...");
@@ -46,8 +46,8 @@ public class main {
         System.out.print("Enter your choice: ");
     }
 
-    private static void performDeposit(){
-        Scanner scnr = new Scanner(System.in);
+    private static void performDeposit(Scanner scnr){
+        //Scanner scnr = new Scanner(System.in);
 
         System.out.println("Enter account number: ");
         String accountNum = scnr.nextLine();
@@ -68,11 +68,11 @@ public class main {
         else{
             System.out.println("Account not found. Please check account number entered. ");
         }
-        scnr.close();
+        
     }
     
-    private static void performWithdrawal(){
-        Scanner scnr = new Scanner(System.in);
+    private static void performWithdrawal(Scanner scnr){
+        //Scanner scnr = new Scanner(System.in);
 
         System.out.println("Enter account number: ");
         String accountNum = scnr.nextLine();
@@ -93,12 +93,12 @@ public class main {
         else{
             System.out.println("Account not found. Please check account number entered. ");
         }
-        scnr.close();
+      
 
     }
 
-    private static void performTransfer(){
-        Scanner scnr = new Scanner(System.in);
+    private static void performTransfer(Scanner scnr){
+        //Scanner scnr = new Scanner(System.in);
 
         System.out.println("Enter account number: ");
         String fromAccountNum = scnr.nextLine();
@@ -130,16 +130,16 @@ public class main {
         else{
             System.out.println("Account nt found, please check account number");
         }
-        scnr.close();
+
     }
 
-    private static void adminAccess(){
-        Scanner scnr = new Scanner(System.in);
+    private static void adminAccess(Scanner scnr){
+        //Scanner scnr = new Scanner(System.in);
         Admin admin = new Admin("Admin", bank);
         System.out.println("Enter account number to view transactions: ");
         String accountNum = scnr.nextLine();
         admin.printAccountTransactions(accountNum);
-        scnr.close();
+
     }
 
 }
