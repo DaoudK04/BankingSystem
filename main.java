@@ -68,6 +68,7 @@ public class main {
         else{
             System.out.println("Account not found. Please check account number entered. ");
         }
+        scnr.close();
     }
     
     private static void performWithdrawal(){
@@ -92,7 +93,53 @@ public class main {
         else{
             System.out.println("Account not found. Please check account number entered. ");
         }
+        scnr.close();
 
     }
-    
+
+    private static void performTransfer(){
+        Scanner scnr = new Scanner(System.in);
+
+        System.out.println("Enter account number: ");
+        String fromAccountNum = scnr.nextLine();
+        Account fromAccount = bank.getAccount(fromAccountNum);
+
+        if(fromAccount != null){
+            System.out.println("Enter receiving account number: ");
+            String toAccountNum = scnr.nextLine();
+            Account toAccount = bank.getAccount(toAccountNum);
+
+            if(toAccount != null){
+                System.out.println("Enter amount to transfer: ");
+                double amount = scnr.nextDouble();
+
+                if(bank.transfer(fromAccountNum, toAccountNum, amount)){
+                    System.out.println("Transfer successful.");
+                    System.out.println("Updated account details - From Account: " + fromAccount);
+                    System.out.println("Updated account details - To Account: " + toAccount);
+                }
+
+                else{
+                    System.out.println("Transfer failed.  Please check account numbers");
+                }
+            }
+            else{
+                System.out.println("Transfer failed.  Please check account number");
+            }
+        }
+        else{
+            System.out.println("Account nt found, please check account number");
+        }
+        scnr.close();
+    }
+
+    private static void adminAccess(){
+        Scanner scnr = new Scanner(System.in);
+        Admin admin = new Admin("Admin", bank);
+        System.out.println("Enter account number to view transactions: ");
+        String accountNum = scnr.nextLine();
+        admin.printAccountTransactions(accountNum);
+        scnr.close();
+    }
+
 }
