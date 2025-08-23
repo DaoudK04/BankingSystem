@@ -15,7 +15,7 @@ public class AccountCreation {
         double Initialbalance = 0.0;
         Account account = new Account(accountNum, accountName, Initialbalance);
         bank.addAccount(account);
-        System.out.println("Account successfully created: " + account);
+        System.out.println("\nAccount successfully created: " + account + "\n");
         scnr.close();
     }
 
