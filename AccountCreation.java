@@ -7,8 +7,8 @@ public class AccountCreation {
         this.bank = bank;
     }
 
-    public void createAccount(){
-        Scanner scnr = new Scanner(System.in);
+    public void createAccount(Scanner scnr){
+        //Scanner scnr = new Scanner(System.in);
         System.out.println("Please enter Account Holder's name ");
         String accountName = scnr.nextLine();
         String accountNum = generateAccountNum();
@@ -16,7 +16,7 @@ public class AccountCreation {
         Account account = new Account(accountNum, accountName, Initialbalance);
         bank.addAccount(account);
         System.out.println("\nAccount successfully created: " + account + "\n");
-        scnr.close();
+        //scnr.close();
     }
 
     //Generates random string of numbers

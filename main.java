@@ -12,7 +12,7 @@ public class main {
 
             switch(choice){
                 case 1:
-                    accountCreation.createAccount();
+                    accountCreation.createAccount(scnr);
                     break;
                 case 2:
                     performDeposit(scnr);
@@ -27,6 +27,9 @@ public class main {
                     adminAccess(scnr);
                     break;
                 case 6:
+                    displayAccountDetails(scnr);
+                    break;
+                case 7:
                     System.out.println("Exiting...");
                     return;
                 default:
@@ -36,13 +39,14 @@ public class main {
     }
 
     private static void displayMenu() {
-        System.out.println("Welcome to " + bank.getBankName());
+        System.out.println("\nWelcome to " + bank.getBankName() + "\n");
         System.out.println("1. Create an Account");
         System.out.println("2. Deposit Money");
         System.out.println("3. Withdraw Money");
         System.out.println("4. Transfer Money");
         System.out.println("5. Admin Access");
-        System.out.println("6. Exit");
+        System.out.println("6. Display Account Details");
+        System.out.println("7. Exit\n");
         System.out.print("Enter your choice: ");
     }
 
@@ -140,6 +144,23 @@ public class main {
         String accountNum = scnr.nextLine();
         admin.printAccountTransactions(accountNum);
 
+    }
+
+    private static void displayAccountDetails(Scanner scnr){
+        System.out.println("Enter account number: ");
+        String accountNum = scnr.nextLine();
+        Account account = bank.getAccount(accountNum);
+
+        if(account != null){
+            System.out.println("\n=== Account Details ===");
+            System.out.println("Account Holder: " + account.getAccountName());
+            System.out.println("Account Number: " + account.getAccountNum());
+            System.out.println("Balance: $" + account.getBalance());
+            System.out.println("=======================\n");
+        }
+        else{
+            System.out.println("Account not found.");
+        }
     }
 
 }
