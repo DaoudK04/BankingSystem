@@ -46,6 +46,16 @@ public class BankSystemGUI {
     }
 
     private void createAccount(){
-        
+        String name = JOptionPane.showInputDialog("Enter account holder's name");
+
+        if(name != null && !name.trim().isEmpty()){
+            String accountNum = "AC" + (int)(Math.random() * 10000);
+            Account account = new Account(accountNum, name, 0.0);
+            
+            bank.addAccount(account);
+            JOptionPane.showMessageDialog(null, "Account created\n" + account);
+
+
+        }
     }
 }
