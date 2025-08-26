@@ -54,8 +54,6 @@ public class BankSystemGUI {
             
             bank.addAccount(account);
             JOptionPane.showMessageDialog(null, "Account created\n" + account);
-
-
         }
     }
 }
