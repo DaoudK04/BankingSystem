@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class main {
-    private static Bank bank = new Bank("Goon Bank");
+    private static Bank bank = new Bank("___ Bank");
     public static void main(String[] args) {
         Scanner scnr = new Scanner(System.in);
         AccountCreation accountCreation = new AccountCreation(bank);
